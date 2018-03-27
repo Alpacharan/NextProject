@@ -40,4 +40,13 @@ public class NextHeaderPage extends Base {
         }*/
        driver.findElement(By.linkText(to)).click();
     }
+    public void hoverToHeaderOption(String options) {
+        List<WebElement> megaNavLists = driver.findElements(By.cssSelector("[class=QuickLinks]>ul>li>a"));
+        for (WebElement element : megaNavLists) {
+            if (element.getText().equalsIgnoreCase(options)) {
+                new Actions(driver).moveToElement(element).click().perform();
+                break;
+            }
+        }
+    }
 }

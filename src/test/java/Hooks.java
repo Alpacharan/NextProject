@@ -21,12 +21,12 @@ public class Hooks {
     }
 
     @cucumber.api.java.After
-    public void quitDriver() {
-         Scenario scenario;
-       // if (scenario.isFailed()) {
-        //    utils.capScreenshot(scenario.getName());
+    public void quitDriver(Scenario scenario) {
+
+       if (scenario.isFailed()) {
+          utils.capScreenshot(driver, scenario.getName());
         }
 
         //base.closeBrowser();
-    }
+    }}
 

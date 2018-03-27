@@ -1,8 +1,10 @@
 package Training;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class NextProductDescPage extends Base {
     public String AcProductName;
@@ -32,10 +34,17 @@ public class NextProductDescPage extends Base {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (viewOrCheckout == "VIEW/EDIT BAG") {
-            driver.findElement(By.cssSelector(".view_edit_bag")).click();
+        /*if (viewOrCheckout == "VIEW/EDIT BAG") {
+            driver.findElement(By.cssSelector(".bagFooter")).getText();
         } else if (viewOrCheckout == "CHECKOUT") {
             driver.findElement(By.cssSelector(".checkout")).click();
+        }*/
+        List<WebElement> allOptions = driver.findElements(By.cssSelector(".bagFooter>a"));
+        for (WebElement option : allOptions) {
+            if (option.getText().equalsIgnoreCase(viewOrCheckout)) {
+                option.click();
+                break;
+            }
         }
     }
 }

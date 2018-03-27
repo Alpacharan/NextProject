@@ -1,10 +1,9 @@
 package Training;
 
 import org.openqa.selenium.By;
-
 public class BasketPage extends Base {
- static String expProductName;
-  static String expProductCode;
+public String expProductName;
+public String expProductCode;
 
     public String getExpectedProductName(){
         expProductName=driver.findElement(By.cssSelector(".itemName")).getText();

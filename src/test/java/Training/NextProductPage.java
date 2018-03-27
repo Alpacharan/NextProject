@@ -8,7 +8,7 @@ import java.util.List;
 
 public class NextProductPage extends Base {
     public void clickProduct(String filter) {
-        List<WebElement> allOptions = driver.findElements(By.cssSelector("#Mapg632322>area"));
+        List<WebElement> allOptions = driver.findElements(By.cssSelector("#Mapg76606>area"));
         for (WebElement option : allOptions) {
             if (option.getAttribute("alt").startsWith(filter)) {
                 option.click();

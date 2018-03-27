@@ -8,12 +8,12 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 
 public class Utils extends Base {
-    public void capScreenshot(String Screenshot) {
-        Screenshot = Screenshot + ".png";
+    public void capScreenshot(WebDriver driver, String Screenshot) {
+
         try {
             TakesScreenshot t = (TakesScreenshot) Base.driver;
             File source = t.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(source, new File(".Screenshots" + Screenshot));
+            FileUtils.copyFile(source, new File("Screenshots"+Screenshot+".png"));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Exception" + e.getMessage());

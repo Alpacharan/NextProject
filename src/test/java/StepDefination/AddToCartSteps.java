@@ -20,7 +20,7 @@ public class AddToCartSteps {
     String s1,s,s2,s3;
     @Given("^I am on homepage$")
     public void i_am_on_homepage() {
-        assertThat(nextHomePage.isOnHomePage(), is(true));
+        assertThat(nextHomePage.isOnHomePage(),is(true));
     }
 
     @When("^I hover on \"([^\"]*)\"$")
@@ -47,7 +47,7 @@ public class AddToCartSteps {
     @When("^I click on add to bag$")
     public void i_click_on_add_to_bag() {
         s1=nextProductDescPage.getProductName();
-         s=nextProductDescPage.getProductCode();
+        s=nextProductDescPage.getProductCode();
         nextProductDescPage.clickonAddToCart();
         }
 
@@ -56,16 +56,20 @@ public class AddToCartSteps {
         nextProductDescPage.shoppingBagHooverAndClick(viewOrCheckout);
     }
 
-    @Then("^I should see respective product add in my cart with correct name and product code$")
-    public void i_should_see_respective_product_add_in_my_cart_with_correct_name_and_product_code() {
-        s2=basketPage.getExpectedProductName();
-        s3=basketPage.getExpectedProductCode();
-        assertThat(s1,is(equalTo(s2)));
-        assertThat(s, is(equalTo(s3)));
-    }
-
     @And("^I click on shopping bag$")
     public void iClickOnShoppingBag() {
         nextProductDescPage.clickOnShoppingBag();
+    }
+
+    @Then("^I should see respective product add in my cart with correct name$")
+    public void iShouldSeeRespectiveProductAddInMyCartWithCorrectName() {
+        s2=basketPage.getExpectedProductName();
+        assertThat(s1,is(equalTo(s2)));
+    }
+
+    @And("^I should see respective product add in my cart with correct product code$")
+    public void iShouldSeeRespectiveProductAddInMyCartWithCorrectProductCode() {
+        s3=basketPage.getExpectedProductCode();
+        assertThat(s, is(equalTo(s3)));
     }
 }

@@ -12,9 +12,10 @@ Feature:Add Item In Trolley
     And I click on add to bag
     And I click on shopping bag
     And I hover on shopping bag and click on "VIEW/EDIT BAG"
-    Then I should see respective product add in my cart with correct name and product code
+    Then I should see respective product add in my cart with correct name
+    And I should see respective product add in my cart with correct product code
 
-@Regression
+  @Regression
   Scenario Outline: Add product to trolley
     Given I am on homepage
     When I hover on "<Department>"
@@ -24,9 +25,11 @@ Feature:Add Item In Trolley
     And I click on add to bag
     And I click on shopping bag
     And I hover on shopping bag and click on "<Option>"
-    Then I should see respective product add in my cart with correct name and product code
+    Then I should see respective product add in my cart with correct name
+    And I should see respective product add in my cart with correct product code
     Examples:
-    |Department|SubCategory|ProductCategory|Product|Option|
-    |  Home & Furniture |Kitchen & Dining|Dining Room Furniture|Hudson Small Sideboard|VIEW/EDIT BAG|
+      | Department       | SubCategory      | ProductCategory       | Product                     | Option        |
+      | Home & Furniture | Kitchen & Dining | Dining Room Furniture | Hudson Dark Small Sideboard | VIEW/EDIT BAG |
+      | Home & Furniture | Kitchen & Dining | Dining Room Furniture | Hudson Dark Ladder Shelf    | VIEW/EDIT BAG |
 
 
